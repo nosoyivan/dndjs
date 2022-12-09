@@ -41,13 +41,24 @@
     <button class="button" onclick="Copy()">Copy</button>
     
     <form>
-    <input type="text"  id="inputtitle" placeholder="Name"/><br />
-    <input type="text" name="content" required id="str"><br />
-    <input type="text" name="content" required id="dex"><br />
-    <input type="text" name="content" required id="con"><br />
-    <input type="text" name="content" required id="int"><br />
-    <input type="text" name="content" required id="wis"><br />
-    <input type="text" name="content" required id="cha"><br />
+    <input type="text"  id="inputtitle" placeholder="Name"/><br /><br />
+    <input placeholder="Strength" type="text" name="content" required id="str"><br />
+    <input placeholder="Dexterity" type="text" name="content" required id="dex"><br />
+    <input placeholder="Constitution" type="text" name="content" required id="con"><br />
+    <input placeholder="Intellegence" type="text" name="content" required id="int"><br />
+    <input placeholder="Wisdom" type="text" name="content" required id="wis"><br />
+    <input placeholder="Charisma" type="text" name="content" required id="cha"><br />
+
+	<p>Race: <select name="race">
+	<option value="Human" id="raceHumam">Human</option>
+</select><br />
+
+	Class: <select name="cla">
+	<option value="Human" id="claWarrior">Warrior</option>
+</select></p>
+
+	<p>Level:<input placeholder="00" style="width: 20px;" type="number" name="content" min="1" max="5" required id="lvl"></p>
+
 
     <button id="databtn">Click to Add</button>    
 
@@ -65,7 +76,7 @@
 <script>
 //RNG Start
     function RNG() {
-        var min = 4; var max = 20;
+        var min = 6; var max = 20;
         var result1 = Math.floor(Math.random() * (max - min + 1)) + min;
         var result2 = Math.floor(Math.random() * (max - min + 1)) + min;
         var result3 = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -154,6 +165,7 @@
             int: document.getElementById('int').value,
             wis: document.getElementById('wis').value,
             cha: document.getElementById('cha').value,
+            lvl: document.getElementById('lvl').value,
         }
         mylist.push(list);
         document.forms[0].reset(); // to clear the form for the next entries
@@ -176,5 +188,3 @@
     
 </body>
 </html>
-
-

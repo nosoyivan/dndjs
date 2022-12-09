@@ -11,68 +11,64 @@
         }
         p>button {
             position: absolute;
-            right: 0;
-            width: 100px;
-            }
+            right: 50%;
+            width: 80px;
+        }
     </style>
 </head>
 <body>
-<div >
-    <p>Strength: <span class="copy1" id="result1"></span>
-    <button class="button" onclick="RNG1(); this.onclick=null;">Reroll</button></p>
+<div>
 
-    <p>Dexterity: <span class="copy2" id="result2"></span>
-    <button class="button" onclick="RNG2(); this.onclick=null;">Reroll</button></p>
+    <p>
+    Strength: <span class="copy1" id="result1"></span>
+    <button class="button" onclick="RNG1(); this.onclick=null;">Reroll</button><br />
+
+    Dexterity: <span class="copy2" id="result2"></span>
+    <button class="button" onclick="RNG2(); this.onclick=null;">Reroll</button><br />
     
-    <p>Constitution: <span class="copy3" id="result3"></span>
-    <button class="button" onclick="RNG3(); this.onclick=null;">Reroll</button></p>
+    Constitution: <span class="copy3" id="result3"></span>
+    <button class="button" onclick="RNG3(); this.onclick=null;">Reroll</button><br />
     
-    <p>Intelligence: <span class="copy4" id="result4"></span>
-    <button class="button" onclick="RNG4(); this.onclick=null;">Reroll</button></p>
+    Intelligence: <span class="copy4" id="result4"></span>
+    <button class="button" onclick="RNG4(); this.onclick=null;">Reroll</button><br />
     
-    <p>Wisdom: <span class="copy5" id="result5"></span>
-    <button class="button" onclick="RNG5(); this.onclick=null;">Reroll</button></p>
+    Wisdom: <span class="copy5" id="result5"></span>
+    <button class="button" onclick="RNG5(); this.onclick=null;">Reroll</button><br />
     
-    <p>Charisma: <span class="copy6" id="result6"></span>
+    Charisma: <span class="copy6" id="result6"></span>
     <button class="button" onclick="RNG6(); this.onclick=null;">Reroll</button></p>
     
     <button class="button" onclick="RNG(); this.onclick=null;">Roll All</button>
     <button class="button" onclick="RNG(); this.onclick=null;">Re-Roll All</button>
-    <button class="button" onclick="Copy()">Copy</button>
+    <button class="button" onclick="Copy()">Copy</button><br />
     
     <form>
-    <input type="text"  id="inputtitle" placeholder="Name"/><br /><br />
-    <input placeholder="Strength" type="text" name="content" required id="str"><br />
-    <input placeholder="Dexterity" type="text" name="content" required id="dex"><br />
-    <input placeholder="Constitution" type="text" name="content" required id="con"><br />
-    <input placeholder="Intellegence" type="text" name="content" required id="int"><br />
-    <input placeholder="Wisdom" type="text" name="content" required id="wis"><br />
-    <input placeholder="Charisma" type="text" name="content" required id="cha"><br />
+    <input type="text"  id="playername " placeholder="Name"/><br /><br />
+    <input placeholder="Strength" type="text"  required id="str"><br />
+    <input placeholder="Dexterity" type="text"  required id="dex"><br />
+    <input placeholder="Constitution" type="text"  required id="con"><br />
+    <input placeholder="Intellegence" type="text"  required id="int"><br />
+    <input placeholder="Wisdom" type="text"  required id="wis"><br />
+    <input placeholder="Charisma" type="text"  required id="cha"><br />
 
-	<p>Race: <select name="race">
-	<option value="Human" id="raceHumam">Human</option>
-</select><br />
+	<p>
+    Race: <select id="raceSelect"></select><br />
+    Class: <select id="claSelect"></select>
+    </p>
 
-	Class: <select name="cla">
-	<option value="Human" id="claWarrior">Warrior</option>
-</select></p>
-
-	<p>Level:<input placeholder="00" style="width: 20px;" type="number" name="content" min="1" max="5" required id="lvl"></p>
+	<p>Level:<input value="01" style="width: 50px;" type="number" min="1" max="20" required id="lvl"></p>
 
 
     <button id="databtn">Click to Add</button>    
 
-    </form>           
-    <form>
         <div id="msg">
-            <pre></pre>
+            <pre></pre>            
         </div>
     </form>
 
     
     <!-- Copy & Submit Function End -->
 </div>
-
 <script>
 //RNG Start
     function RNG() {
@@ -149,7 +145,45 @@
         var last = nodes[nodes.length- 1];
         document.querySelector('#cha').value =last.innerHTML;
     }
-//Copy End    
+//Copy End 
+
+//Race & Classes End
+
+var raceobject = {
+    Dwarves : 'Dwarves',
+    Elves : 'Elves',
+    Halflings : 'Halflings',
+    Humans : 'Humans',
+    Dragonborns : 'Dragonborns',
+    Gnomes : 'Gnomes',
+    Halfelves : 'Halfelves',
+    Halforcs : 'Halforcs',
+    Tieflings : 'Tieflings',
+};
+var select = document.getElementById("raceSelect");
+for(index in raceobject) {
+    select.options[select.options.length] = new Option(raceobject[index], index);
+}
+
+var claobject = {
+    Barbarian : 'Barbarian',
+    Bard : 'Bard',
+    Cleric : 'Cleric',
+    Druid : 'Druid',
+    Fighter : 'Fighter',
+    Monk : 'Monk',
+    Paladin : 'Paladin',
+    Ranger : 'Ranger',
+    Rogue : 'Rogue',
+    Sorcerer : 'Rogue',
+    Warlock : 'Warlock',
+    Wizard : 'Wizard',
+};
+var select = document.getElementById("claSelect");
+for(index in claobject) {
+    select.options[select.options.length] = new Option(claobject[index], index);
+}
+//Race & Classes End
 
 //Database Start
     let mylist = [];
@@ -158,7 +192,7 @@
         ev.preventDefault();  //to stop the form submitting
         let list = {
             id: Math.floor(Math.random() * (1000)),
-            title: document.getElementById('inputtitle').value,
+            name: document.getElementById('playername ').value,
             str: document.getElementById('str').value,
             dex: document.getElementById('dex').value,
             con: document.getElementById('con').value,
@@ -166,25 +200,130 @@
             wis: document.getElementById('wis').value,
             cha: document.getElementById('cha').value,
             lvl: document.getElementById('lvl').value,
+            race: document.getElementById('raceSelect').value,
+            cla: document.getElementById('claSelect').value,
         }
+
         mylist.push(list);
         document.forms[0].reset(); // to clear the form for the next entries
         //document.querySelector('form').reset();
+
+        //saving to localStorage
+        localStorage.setItem('List', JSON.stringify(mylist) );
 
         //for display purposes only
         console.warn('added' , {mylist} );
         let pre = document.querySelector('#msg pre');
         pre.textContent = '\n' + JSON.stringify(mylist, '\t', 2);
 
-        //saving to localStorage
-        localStorage.setItem('List', JSON.stringify(mylist) );
+
+        //display test 2
+        var printStorageBody = function () {
+        var body = document.querySelector("body");
+        var pre = document.createElement("pre");
+        body.innerHTML = "";
+        pre.innerText = JSON.stringify(localStorage, null, '\t');
+        body.appendChild(pre);
+        
+        }
+
+
+        const text = JSON.stringify(mylist);
+        const obj = JSON.parse(text);
+        document.getElementById("demoJSON").innerHTML = obj.name + ", "; 
+
+//<p>JSON: <span class="copyJSON" id="demoJSON"></span></p>
+//<input type="text"  required id="JSONinput"><br />
+
+        var input = document.getElementById("ipone");
+        var paragraph = document.getElementById("test");
+
+        input.addEventListener("input", function() {
+        var value = input.value;
+        paragraph.innerText = value;
+        });
+
     }
+
+
+// End Database
+    
     document.addEventListener('DOMContentLoaded', ()=>{
         document.getElementById('databtn').addEventListener('click', addList);
     });
 
+//CopyJSON End
+function CopyJSON() {
+        var nodes = document.querySelectorAll('.copyJSON');
+        var last = nodes[nodes.length- 1];
+        document.querySelector('#JSONinput').value =last.innerHTML;
+    }
+//CopyJSON End    
+
+
+    
 
 </script>
-    
+Class:<br />
+<b>Barbarian</b>
+Hit Die: d12<br />
+Primary Ability: Strength<br />
+Saves: Strength &amp; Constitution <br />
+
+<b>Bard</b>
+Hit Die: d8<br />
+Primary Ability: Charisma<br />
+Saves: Dexterity &amp; Charisma<br />
+
+<b>Cleric</b>
+Hit Die: d8<br />
+Primary Ability: Wisdom<br />
+Saves: Wisdom &amp; Charisma<br />
+
+<b>Druid</b>
+Hit Die: d8<br />
+Primary Ability: Wisdom<br />
+Saves: Intelligence &amp; Wisdom<br />
+
+<b>Fighter</b>
+Hit Die: d10<br />
+Primary Ability: Strength or Dexterity<br />
+Saves: Strength &amp; Constitution<br />
+
+<b>Monk</b>
+Hit Die: d8<br />
+Primary Ability: Dexterity &amp; Wisdom<br />
+Saves: Strength &amp; Dexterity<br />
+
+<b>Paladin</b>
+Hit Die: d10<br />
+Primary Ability: Strength &amp; Charisma<br />
+Saves: Wisdom &amp; Charisma<br />
+
+<b>Ranger</b>
+Hit Die: d10<br />
+Primary Ability: Dexterity &amp; Wisdom<br />
+Saves: Strength & Dexterity<br />
+
+<b>Rogue</b>
+Hit Die: d8<br />
+Primary Ability: Dexterity<br />
+Saves: Dexterity &amp; Intelligence<br />
+
+<b>Sorcerer</b>
+Hit Die: d6<br />
+Primary Ability: Charisma<br />
+Saves: Constitution &amp; Charisma<br />
+
+<b>Warlock</b>
+Hit Die: d8<br />
+Primary Ability: Charisma<br />
+Saves: Wisdom &amp; Charisma<br />
+
+<b>Wizard</b>
+Hit Die: d6<br />
+Primary Ability: Intelligence<br />
+Saves: Intelligence &AMP; Wisdom<br />
+
 </body>
 </html>

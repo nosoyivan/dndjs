@@ -26,7 +26,10 @@
 <body>
 <div class="columns is-centered" style="background-color: #000000;"><br />
     <div class="column is-half is-centered" style="background-color: #ffffff; padding:20px;">
-    <p>
+        <div class="columns">
+            <div class="column">
+    
+        <p>
     Strength: <span class="copy1" id="result1"></span>
     <button class="button rollbutton  is-centered" onclick="RNG1(); this.onclick=null;">Reroll</button><br />
 
@@ -57,14 +60,12 @@
     <input placeholder="Intellegence" type="text"  required id="int"><br />
     <input placeholder="Wisdom" type="text"  required id="wis"><br />
     <input placeholder="Charisma" type="text"  required id="cha"><br />
-    <div class="columns">
+        </div>
         <div class="column">
             Race:<br />
             <div class="select is-normal">
                 <select id="raceSelect"></select>
-            </div>
-        </div>
-        <div class="column">
+            </div><br />         
             Class:<br />
             <div class="select is-normal">
                 <select id="claSelect"></select>

@@ -7,6 +7,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        body {
+            background-color: #000000;
+            font-weight: 500;
+        }
         form {
             line-height: 30px;
         }
@@ -14,20 +18,18 @@
             max-width: 200px;
         }
         .rollbutton {
-            width: 80px;
+            font-weight: 500;
+            width: 60px;
             height: 30px;
-            border-radius: 10px;
         }
         p {
-            font-size: 20px;
+            font-size: 1.3em;
         }
     </style>
 </head>
 <body>
-<div class="columns is-centered" style="background-color: #000000;"><br />
-    <div class="column is-half is-centered" style="background-color: #ffffff; padding:20px;">
-        <div class="columns">
-            <div class="column">
+<div class="columns is-centered"><br />
+    <div class="column is-half is-centered" style="background-color: #cccccc; padding:20px;">
     
         <p>
     Strength: <span class="copy1" id="result1"></span>
@@ -60,8 +62,6 @@
     <input placeholder="Intellegence" type="text"  required id="int"><br />
     <input placeholder="Wisdom" type="text"  required id="wis"><br />
     <input placeholder="Charisma" type="text"  required id="cha"><br />
-        </div>
-        <div class="column">
             Race:<br />
             <div class="select is-normal">
                 <select id="raceSelect"></select>
@@ -70,12 +70,10 @@
             <div class="select is-normal">
                 <select id="claSelect"></select>
             </div><br />
-        </div>
-    </div>
     <p>Level:<input value="01" style="width: 50px;" type="number" min="1" max="20" required id="lvl"></p>
 
 
-    <button id="databtn">Click to Add</button>    
+    <button class="button " id="databtn">Click to Add</button>    
 
         <div id="msg">
             <pre></pre>            

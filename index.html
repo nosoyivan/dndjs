@@ -25,7 +25,36 @@
         p {
             font-size: 1.3em;
         }
+
+        code {
+        background-color: var(--color-bg-dark);
+        font-family: monospace;
+        padding: var(--space-xxxxs) var(--space-xxxs);
+        border-radius: var(--radius-md);
+        }
+        code::-moz-selection {
+        background-color: var(--color-contrast-high);
+        color: var(--color-bg);
+        }
+        code::selection {
+        background-color: var(--color-contrast-high);
+        color: var(--color-bg);
+        }
+
+        .code-snippet {
+        background-color: var(--color-bg-dark);
+        border-radius: var(--radius-md);
+        }
+        .code-snippet code {
+        background-color: transparent;
+        line-height: 1.45;
+        font-size: var(--text-sm);
+        display: block;
+        padding: var(--space-md);
+        overflow-x: auto;
+        }
     </style>
+
 </head>
 <body>
 <div class="columns is-centered"><br />
@@ -76,7 +105,8 @@
     <button class="button " id="databtn">Click to Add</button>    
 
         <div id="msg">
-            <pre></pre>            
+            <pre></pre>    
+            <pre id="123log"></pre>     
         </div>
     </form>
 
@@ -145,6 +175,24 @@
     </div>
 </div>
 <script>
+    (function () {
+    if (!console) {
+        console = {};
+    }
+    var old = console.log;
+    var logger = document.getElementById('123log');
+    console.log = function (message) {
+        logger.innerHTML = '<pre>' + message + '</pre>';
+    }
+})();
+
+
+
+
+console.log(localStorage.getItem('List'));
+
+
+
     //RNG Start
         function RNG() {
             var min = 6; var max = 20;

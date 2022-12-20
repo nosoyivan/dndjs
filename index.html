@@ -165,7 +165,7 @@
     var old = console.log;
     var logger = document.getElementById('123log');
     console.log = function (message) {
-        logger.innerHTML = '<div>' + message + '</div>';
+        logger.innerHTML = '<pre>' + message + '</pre>';
     }
 })();
 

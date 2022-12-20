@@ -8,11 +8,23 @@
     <link rel="stylesheet" href="style.css">
     <style>
         body {
-            background-color: #000000;
+            background-color: #2b2b1f;
             font-weight: 500;
+            color: aliceblue;
+            font-size: 1em;
+            font-weight: 400;
+            line-height: 1.5;
         }
         form {
+            
             line-height: 30px;
+        }
+        form>input {
+            font-size:inherit;
+            margin:10px 0;
+            padding:10px;
+            width:100%;
+
         }
         .fwidth {
             max-width: 200px;
@@ -24,41 +36,17 @@
         }
         p {
             font-size: 1.3em;
+            margin-bottom:15px;
+
         }
 
-        code {
-        background-color: var(--color-bg-dark);
-        font-family: monospace;
-        padding: var(--space-xxxxs) var(--space-xxxs);
-        border-radius: var(--radius-md);
-        }
-        code::-moz-selection {
-        background-color: var(--color-contrast-high);
-        color: var(--color-bg);
-        }
-        code::selection {
-        background-color: var(--color-contrast-high);
-        color: var(--color-bg);
-        }
 
-        .code-snippet {
-        background-color: var(--color-bg-dark);
-        border-radius: var(--radius-md);
-        }
-        .code-snippet code {
-        background-color: transparent;
-        line-height: 1.45;
-        font-size: var(--text-sm);
-        display: block;
-        padding: var(--space-md);
-        overflow-x: auto;
-        }
     </style>
 
 </head>
 <body>
 <div class="columns is-centered"><br />
-    <div class="column is-half is-centered" style="background-color: #cccccc; padding:20px;">
+    <div class="column is-half is-centered" style="background-color: #1c1c15; padding:20px;">
     
         <p>
     Strength: <span class="copy1" id="result1"></span>
@@ -91,18 +79,13 @@
     <input placeholder="Intellegence" type="text"  required id="int"><br />
     <input placeholder="Wisdom" type="text"  required id="wis"><br />
     <input placeholder="Charisma" type="text"  required id="cha"><br />
-            Race:<br />
-            <div class="select is-normal">
-                <select id="raceSelect"></select>
-            </div><br />         
-            Class:<br />
-            <div class="select is-normal">
-                <select id="claSelect"></select>
-            </div><br />
-    <p>Level:<input value="01" style="width: 50px;" type="number" min="1" max="20" required id="lvl"></p>
+    <p>Race: <br /><div class="select is-normal"><select id="raceSelect"></select></div><br /></p>        
+    <p>Class:<br /><div class="select is-normal"><select id="claSelect"></select></div><br /></p>
+    
+    <p>Level:<input value="01" class=" lvlind" style="width: 70px;" type="number" min="1" max="20" required id="lvl"></p>
 
 
-    <button class="button " id="databtn">Click to Add</button>    
+    <button class="button " id="databtn">Click to Add</button><br /><br />
 
         <div id="msg">
             <pre></pre>    
@@ -182,7 +165,7 @@
     var old = console.log;
     var logger = document.getElementById('123log');
     console.log = function (message) {
-        logger.innerHTML = '<pre>' + message + '</pre>';
+        logger.innerHTML = '<div>' + message + '</div>';
     }
 })();
 

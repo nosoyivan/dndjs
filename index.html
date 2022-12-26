@@ -89,7 +89,7 @@
 
         <div id="msg">
             <pre></pre>    
-            <pre id="123log"></pre>     
+            <pre id="outputLog"></pre>     
         </div>
     </form>
 
@@ -163,7 +163,7 @@
         console = {};
     }
     var old = console.log;
-    var logger = document.getElementById('123log');
+    var logger = document.getElementById('outputLog');
     console.log = function (message) {
         logger.innerHTML = '<pre>' + message + '</pre>';
     }

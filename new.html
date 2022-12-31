@@ -10,12 +10,22 @@
 
     <style>
         body {
-            background-color: black;
             font-weight: 500;
             color: white;
             font-size: 1em;
             font-weight: 400;
             line-height: 1.5;
+        }
+        .container {
+            padding: 10px;
+            border-radius: 25px;
+            background-color: black;
+            color: white;
+            font-size: 1em;
+            font-weight: 400;
+            line-height: 1.5;
+            max-width: 400px;
+
         }
     
         form {
@@ -50,8 +60,9 @@
     </style>
 </head>
 
-<body style="padding: 10px;" align="center">
-    
+<body style="padding: 10px;">
+
+    <div class="container">
     <p style="width: 300px; left:0; right:0; margin-left:auto; margin-right:auto;">
         Strength: <span class="copy1" id="result1"></span>
         <button class="button rollbutton " onclick="RNG1(); this.onclick=null;">Reroll</button><br />
@@ -104,7 +115,7 @@
             <button class="button" type="submit">Submit</button>
         </div>
     </form>
-
+</div>
 
 <script src="https://unpkg.com/@supabase/supabase-js"></script>
 <script>

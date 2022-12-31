@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form Example</title>
+    <link rel="stylesheet" href="style.css">
+
+    </style>
+</head>
+
+<body style="padding: 10px;" align="center">
+    <p style="width: 300px; left:0; right:0; margin-left:auto; margin-right:auto;">
+        Strength: <span class="copy1" id="result1"></span>
+        <button class="button rollbutton " onclick="RNG1(); this.onclick=null;">Reroll</button><br />
+
+        Dexterity: <span class="copy2" id="result2"></span>
+        <button class="button rollbutton " onclick="RNG2(); this.onclick=null;">Reroll</button><br />
+
+        Constitution: <span class="copy3" id="result3"></span>
+        <button class="button rollbutton " onclick="RNG3(); this.onclick=null;">Reroll</button><br />
+
+        Intelligence: <span class="copy4" id="result4"></span>
+        <button class="button rollbutton " onclick="RNG4(); this.onclick=null;">Reroll</button><br />
+
+        Wisdom: <span class="copy5" id="result5"></span>
+        <button class="button rollbutton " onclick="RNG5(); this.onclick=null;">Reroll</button><br />
+
+        Charisma: <span class="copy6" id="result6"></span>
+        <button class="button rollbutton " onclick="RNG6(); this.onclick=null;">Reroll</button>
+        <br />
+        <button class="button rollbutton" onclick="RNG(); this.onclick=null;">Roll All</button>
+        <button class="button rollbutton " onclick="Copy()">Copy</button><br />
+
+    </p>
+
+
+    <form name="contact" id="set-form" style="width: 300px; left:0; right:0; margin-left:auto; margin-right:auto;">
+
+
+
+        <label class="label" for="name">Name</label>
+        <input required class="input" type="text" placeholder="Name" name="name" id="name" />
+        <label class="label">Stats</label>
+        <input required class="input" type="text" placeholder="Strength" name="str" id="str" />
+
+        <input required class="input" type="text" placeholder="Dexterity" name="dex" id="dex" />
+        <input required class="input" type="text" placeholder="Constitution" name="con" id="con" />
+        <input required class="input" type="text" placeholder="Intellegence" name="int" id="int" />
+        <input required class="input" type="text" placeholder="Wisdom" name="wis" id="wis" />
+        <input required class="input" type="text" placeholder="Charisma" name="cha" id="cha" />
+
+
+        <p>Race: <br />
+        <div class="select"><select name="raceSelect" id="raceSelect"></select></div><br /></p>
+        <p>Class:<br />
+        <div class="select"><select name="claSelect" id="claSelect"></select></div><br /></p>
+        <p>Level:<br>
+            <input value="01" class="input lvlind" style="width: 70px;" type="tel" min="1" max="20" required name="lvl"
+                id="lvl">
+        </p>
+
+
+        <div class="control">
+            <button class="button" type="submit">Submit</button>
+        </div>
+    </form>
+
+
+<script src="https://unpkg.com/@supabase/supabase-js"></script>
+<script>
+
+        
+</script>
+
+<script src="code.js"></script>
+</body>
+
+</html>

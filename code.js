@@ -205,5 +205,38 @@ console.log(localStorage.getItem('List'));
             document.querySelector('#JSONinput').value =last.innerHTML;
         }
     //CopyJSON End    
-    
-    
+
+    //Connect
+
+    const { createClient } = supabase
+    supabase = createClient('https://zsllqqspcgvfpyesjgwo.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpzbGxxcXNwY2d2ZnB5ZXNqZ3dvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzIyNjQ2NDEsImV4cCI6MTk4Nzg0MDY0MX0.Uik4c0Ojpg_pj7seEjl73D2NvwgWbXHSDXx5b5bkcyY')
+
+    const form = document.querySelector('#set-form')
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault()
+
+        const formInputs = form.querySelectorAll('input, select, textarea')
+
+        let submision = {}
+
+        formInputs.forEach(element => {
+            const { value, name } = element
+            if (value) {
+                submision[name] = value
+            }
+        })
+
+        const { error } = await supabase.from('dndjs').insert([submision], { returning: 'minimal' })
+
+        if (error) {
+            alert('There was an error please try again')
+        } else {
+            alert('Thanks for contacting us')
+        }
+
+        formInputs.forEach(element => element.value = '')
+
+    })
+
+    //Connect
+
